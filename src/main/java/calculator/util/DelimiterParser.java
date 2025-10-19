@@ -8,6 +8,9 @@ public class DelimiterParser {
         List<String> delimiters = new ArrayList<>();
         if (input.startsWith("//")) {
             int lineIndex = input.indexOf("\n");
+            if (lineIndex == -1) {
+                lineIndex = input.indexOf("\\n");
+            }
             String custom = input.substring(2, lineIndex);
             delimiters.add(custom);
         } else {
@@ -15,5 +18,15 @@ public class DelimiterParser {
             delimiters.add(":");
         }
         return delimiters;
+    }
+    public String extractCalculation(String input) {
+        if (input.startsWith("//")) {
+            int lineIndex = input.indexOf("\n");
+            if (lineIndex == -1) {
+                lineIndex = input.indexOf("\\n");
+            }
+            return input.substring(lineIndex + 2);
+        }
+        return input;
     }
 }

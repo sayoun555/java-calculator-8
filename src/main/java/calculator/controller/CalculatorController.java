@@ -10,9 +10,9 @@ public class CalculatorController {
         this.service = service;
     }
     public void run() {
-        System.out.println(" 덧셈할 문자열을 입력해주세요.");
+        System.out.println("덧셈할 문자열을 입력해주세요.");
         String input = Console.readLine();
         long result = service.calculatorSum(input);
-        System.out.println("결과: " + result);
+        System.out.println("결과 : " + result);
     }
 }

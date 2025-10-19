@@ -10,6 +10,8 @@ public class NumberParser {
             long num = Long.parseLong(token[i]);
             numbers.add(num);
         }
+        Validator validator = new Validator();
+        validator.checkNegative(numbers);
         return numbers;
     }
 }

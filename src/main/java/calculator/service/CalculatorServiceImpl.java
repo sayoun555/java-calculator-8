@@ -21,7 +21,8 @@ public class CalculatorServiceImpl implements CalculatorService{
     }
     public long calculatorSum(String input) {
         List<String> delimiters = delimiterParser.extractDelimiters(input);
-        String[] stringSplit = stringSplitter.splitByDelimiter(input, delimiters);
+        String calcPart = delimiterParser.extractCalculation(input);
+        String[] stringSplit = stringSplitter.splitByDelimiter(calcPart, delimiters);
         List<Long> numbers = numberParser.parseNumbers(stringSplit);
         long numberSum = calculator.calculate(numbers);
 
