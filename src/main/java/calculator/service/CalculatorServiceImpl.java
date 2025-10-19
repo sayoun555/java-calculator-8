@@ -1,6 +1,30 @@
 package calculator.service;
 
-public class CalculatorServiceImpl implements CalculatorService{
+import calculator.util.Calculator;
+import calculator.util.DelimiterParser;
+import calculator.util.NumberParser;
+import calculator.util.StringSplitter;
 
-    return 0;
+import java.util.List;
+
+public class CalculatorServiceImpl implements CalculatorService{
+    private final Calculator calculator;
+    private final DelimiterParser delimiterParser;
+    private final NumberParser numberParser;
+    private final StringSplitter stringSplitter;
+
+    public CalculatorServiceImpl() {
+        this.calculator = new Calculator();
+        this.delimiterParser = new DelimiterParser();
+        this.numberParser = new NumberParser();
+        this.stringSplitter = new StringSplitter();
+    }
+    public long calculatorSum(String input) {
+        List<String> delimiters = delimiterParser.extractDelimiters(input);
+        String[] stringSplit = stringSplitter.splitByDelimiter(input, delimiters);
+        List<Long> numbers = numberParser.parseNumbers(stringSplit);
+        long numberSum = calculator.calculate(numbers);
+
+        return numberSum;
+    }
 }
