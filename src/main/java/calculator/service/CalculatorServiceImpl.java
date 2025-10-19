@@ -24,7 +24,6 @@ public class CalculatorServiceImpl implements CalculatorService{
         String calcPart = delimiterParser.extractCalculation(input);
         String[] stringSplit = stringSplitter.splitByDelimiter(calcPart, delimiters);
         List<Long> numbers = numberParser.parseNumbers(stringSplit);
-
         return calculator.calculate(numbers);
     }
 }

@@ -23,6 +23,7 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 숫자_한개() {
         assertSimpleTest(() -> {
@@ -30,6 +31,7 @@ class ApplicationTest extends NsTest {
             assertThat(output()).contains("결과 : 3");
         });
     }
+
     @Test
     void 특수_문자() {
         assertSimpleTest(() ->
@@ -37,6 +39,7 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
     @Test
     void 문자_처리() {
         assertSimpleTest(()->
@@ -44,7 +47,6 @@ class ApplicationTest extends NsTest {
                         .isInstanceOf(IllegalArgumentException.class)
         );
     }
-
 
     @Override
     public void runMain() {
