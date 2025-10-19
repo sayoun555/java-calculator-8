@@ -7,8 +7,8 @@ public class NumberParser {
     public List<Long> parseNumbers(String[] token) {
         List<Long> numbers = new ArrayList<>();
         try {
-            for (int i = 0; i < token.length; i++) {
-                long num = Long.parseLong(token[i]);
+            for (String string : token) {
+                long num = Long.parseLong(string);
                 numbers.add(num);
             }
         } catch (NumberFormatException e) {

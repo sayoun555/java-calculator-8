@@ -4,12 +4,11 @@ import java.util.List;
 
 public class StringSplitter {
     public String[] splitByDelimiter(String input, List<String> delimiters) {
-        String regex = "[";
-        for (int i = 0; i < delimiters.size(); i++) {
-            regex += delimiters.get(i);
+        StringBuilder regex = new StringBuilder("[");
+        for (String delimiter : delimiters) {
+            regex.append(delimiter);
         }
-        regex += "]";
-        String[] stringSplit = input.split(regex);
-        return stringSplit;
+        regex.append("]");
+        return input.split(regex.toString());
     }
 }

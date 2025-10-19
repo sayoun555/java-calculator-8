@@ -27,7 +27,7 @@ class ApplicationTest extends NsTest {
     void 숫자_한개() {
         assertSimpleTest(() -> {
             run("3");
-            assertThat(output().contains("결과 : 3"));
+            assertThat(output()).contains("결과 : 3");
         });
     }
     @Test
