@@ -1,18 +1,22 @@
 package calculator.controller;
 
+import calculator.io.InputView;
+import calculator.io.OutputView;
 import calculator.service.CalculatorService;
-import camp.nextstep.edu.missionutils.Console;
 
 public class CalculatorController {
     private final CalculatorService service;
+    private final InputView inputview;
+    private final OutputView outputview;
 
-    public CalculatorController (CalculatorService service) {
+    public CalculatorController (CalculatorService service, InputView inputview, OutputView outputview) {
         this.service = service;
+        this.inputview = inputview;
+        this.outputview = outputview;
     }
     public void run() {
-        System.out.println("덧셈할 문자열을 입력해주세요.");
-        String input = Console.readLine();
+        String input = inputview.readInput();
         long result = service.calculatorSum(input);
-        System.out.println("결과 : " + result);
+        outputview.outputResult(result);
     }
 }
