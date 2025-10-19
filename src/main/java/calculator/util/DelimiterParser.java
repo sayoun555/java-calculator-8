@@ -19,6 +19,7 @@ public class DelimiterParser {
         }
         return delimiters;
     }
+
     public String extractCalculation(String input) {
         if (input.startsWith("//")) {
             int lineIndex = input.indexOf("\n");
