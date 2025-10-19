@@ -24,12 +24,27 @@ class ApplicationTest extends NsTest {
         );
     }
     @Test
-    void 빈_문자열() {
+    void 숫자_한개() {
         assertSimpleTest(() -> {
-            run("");
-            assertThat(output().contains("결과 : 0"));
+            run("3");
+            assertThat(output().contains("결과 : 3"));
         });
     }
+    @Test
+    void 특수_문자() {
+        assertSimpleTest(() ->
+                assertThatThrownBy(() -> runException("1, %, 2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+    @Test
+    void 문자_처리() {
+        assertSimpleTest(()->
+                assertThatThrownBy(()-> runException("1, j, 2"))
+                        .isInstanceOf(IllegalArgumentException.class)
+        );
+    }
+
 
     @Override
     public void runMain() {

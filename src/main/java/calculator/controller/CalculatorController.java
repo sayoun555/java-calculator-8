@@ -6,17 +6,17 @@ import calculator.service.CalculatorService;
 
 public class CalculatorController {
     private final CalculatorService service;
-    private final InputView inputview;
-    private final OutputView outputview;
+    private final InputView inputView;
+    private final OutputView outputView;
 
-    public CalculatorController (CalculatorService service, InputView inputview, OutputView outputview) {
+    public CalculatorController (CalculatorService service, InputView inputView, OutputView outputView) {
         this.service = service;
-        this.inputview = inputview;
-        this.outputview = outputview;
+        this.inputView = inputView;
+        this.outputView = outputView;
     }
     public void run() {
-        String input = inputview.readInput();
+        String input = inputView.readInput();
         long result = service.calculatorSum(input);
-        outputview.outputResult(result);
+        outputView.outputResult(result);
     }
 }
