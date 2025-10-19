@@ -20,6 +20,10 @@ public class CalculatorServiceImpl implements CalculatorService{
         this.stringSplitter = new StringSplitter();
     }
     public long calculatorSum(String input) {
+        if (input.isEmpty()) {
+            return 0;
+        }
+
         List<String> delimiters = delimiterParser.extractDelimiters(input);
         String calcPart = delimiterParser.extractCalculation(input);
         String[] stringSplit = stringSplitter.splitByDelimiter(calcPart, delimiters);
