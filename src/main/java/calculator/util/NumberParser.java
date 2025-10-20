@@ -1,11 +1,13 @@
 package calculator.util;
 
+import calculator.domain.Number;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class NumberParser {
-    public List<Number> parseNumbers(String[] token) {
-        List<Number> numbers = new ArrayList<>();
+    public List<calculator.domain.Number> parseNumbers(String[] token) {
+        List<calculator.domain.Number> numbers = new ArrayList<>();
         for (String string : token) {
             if (string.isEmpty()) {
                 continue;

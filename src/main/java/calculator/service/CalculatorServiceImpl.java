@@ -2,7 +2,7 @@ package calculator.service;
 
 import calculator.util.Calculator;
 import calculator.util.DelimiterParser;
-import calculator.util.Number;
+import calculator.domain.Number;
 import calculator.util.NumberParser;
 import calculator.util.StringSplitter;
 
