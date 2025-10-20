@@ -2,6 +2,7 @@ package calculator.service;
 
 import calculator.util.Calculator;
 import calculator.util.DelimiterParser;
+import calculator.util.Number;
 import calculator.util.NumberParser;
 import calculator.util.StringSplitter;
 
@@ -27,7 +28,7 @@ public class CalculatorServiceImpl implements CalculatorService{
         List<String> delimiters = delimiterParser.extractDelimiters(input);
         String calcPart = delimiterParser.extractCalculation(input);
         String[] stringSplit = stringSplitter.splitByDelimiter(calcPart, delimiters);
-        List<Long> numbers = numberParser.parseNumbers(stringSplit);
+        List<Number> numbers = numberParser.parseNumbers(stringSplit);
         return calculator.calculate(numbers);
     }
 }

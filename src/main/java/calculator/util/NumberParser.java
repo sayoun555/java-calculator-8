@@ -4,18 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NumberParser {
-    public List<Long> parseNumbers(String[] token) {
-        List<Long> numbers = new ArrayList<>();
-        try {
-            for (String string : token) {
-                long num = Long.parseLong(string);
-                numbers.add(num);
+    public List<Number> parseNumbers(String[] token) {
+        List<Number> numbers = new ArrayList<>();
+        for (String string : token) {
+            if (string.isEmpty()) {
+                continue;
             }
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("잘못 된 입력입니다.");
+            numbers.add(new Number(string));
         }
-        Validator validator = new Validator();
-        validator.checkNegative(numbers);
         return numbers;
     }
 }
